@@ -11,6 +11,16 @@ test("Frames handling @Frames", async({page})=>{
     // frames.forEach((frame)=>{
     //     console.log("Frame name is: ",frame.name())
     // })                      
-    //get
+    //Approach 1 by using page.frame()
+    // const frame1 = page.frame({url:"https://ui.vision/demo/webtest/frames/frame_1.html"})
+    // if(frame1){
+    //    // await frame1.locator("input[name='mytext1']").fill("This is Frame 1") //method 1
+    //    await frame1.fill("input[name='mytext1']","This is Frame 1") //method 2
+    // } else {
+    //     console.log("Frame is not available")
+    // }
+    //Approach 2 by using frame locator
+    const frame3 = await page.frameLocator("[src='frame_1.html']").locator("input[name='mytext1']").fill("John")
+    
 
 })
