@@ -1,0 +1,423 @@
+import { test, expect } from '@playwright/test';
+
+test.use({
+  viewport: {
+    height: 720,
+    width: 1280
+  }
+});
+
+test('test', async ({ page }) => {
+  await page.goto('https://testautomationpractice.blogspot.com/');
+  await page.locator('#Wikipedia1_wikipedia-search-input').click();
+  await page.locator('#Wikipedia1_wikipedia-search-input').fill('dhhd');
+  await page.locator('.column-right-inner').click();
+  await page.locator('body').press('ArrowDown');
+  await page.locator('.fauxborder-left.main-fauxborder-left').click();
+  await page.locator('body').press('ArrowDown');
+  await page.locator('body').press('ArrowDown');
+  await page.getByRole('button', { name: 'START' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Simple Alert' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Confirmation Alert' }).click();
+  await expect(page.locator('body')).toMatchAriaSnapshot(`
+    - heading "GUI Elements" [level=3]:
+      - link "GUI Elements":
+        - /url: https://testautomationpractice.blogspot.com/2018/09/automation-form.html
+    - text: "Name:"
+    - textbox "Enter Name"
+    - text: "Email:"
+    - textbox "Enter EMail"
+    - text: "Phone:"
+    - textbox "Enter Phone"
+    - text: "Address:"
+    - textbox "Address:"
+    - text: "Gender:"
+    - radio "Male"
+    - text: Male
+    - radio "Female"
+    - text: "Female Days:"
+    - checkbox "Sunday"
+    - text: Sunday
+    - checkbox "Monday"
+    - text: Monday
+    - checkbox "Tuesday"
+    - text: Tuesday
+    - checkbox "Wednesday"
+    - text: Wednesday
+    - checkbox "Thursday"
+    - text: Thursday
+    - checkbox "Friday"
+    - text: Friday
+    - checkbox "Saturday"
+    - text: "Saturday Country:"
+    - combobox "Country:":
+      - option "United States" [selected]
+      - option "Canada"
+      - option "United Kingdom"
+      - option "Germany"
+      - option "France"
+      - option "Australia"
+      - option "Japan"
+      - option "China"
+      - option "Brazil"
+      - option "India"
+    - text: "Colors:"
+    - listbox "Colors:":
+      - option "Red"
+      - option "Blue"
+      - option "Green"
+      - option "Yellow"
+      - option "Red"
+      - option "White"
+      - option "Green"
+    - text: "Sorted List:"
+    - listbox "Sorted List:":
+      - option "Cat"
+      - option "Cheetah"
+      - option "Deer"
+      - option "Dog"
+      - option "Elephant"
+      - option "Fox"
+      - option "Giraffe"
+      - option "Lion"
+      - option "Rabbit"
+      - option "Zebra"
+    - paragraph:
+      - text: "Date Picker 1 (mm/dd/yyyy):"
+      - textbox
+    - paragraph:
+      - text: "Date Picker 2 (dd/mm/yyyy) :"
+      - textbox
+    - text: "Date Picker 3: (Select a Date Range)"
+    - textbox
+    - text: to
+    - textbox
+    - button "Submit"
+    - link "Home":
+      - /url: https://testautomationpractice.blogspot.com/
+    - text: "Subscribe to:"
+    - link "Comments (Atom)":
+      - /url: https://testautomationpractice.blogspot.com/feeds/posts/default
+    - heading "Upload Files" [level=2]
+    - button "Choose File"
+    - button "Upload Single File"
+    - paragraph
+    - button "Choose File"
+    - button "Upload Multiple Files"
+    - paragraph
+    - heading "Static Web Table" [level=2]
+    - table:
+      - rowgroup:
+        - row "BookName Author Subject Price":
+          - cell "BookName"
+          - cell "Author"
+          - cell "Subject"
+          - cell "Price"
+        - row /Learn Selenium Amit Selenium \\d+/:
+          - cell "Learn Selenium"
+          - cell "Amit"
+          - cell "Selenium"
+          - cell /\\d+/
+        - row /Learn Java Mukesh Java \\d+/:
+          - cell "Learn Java"
+          - cell "Mukesh"
+          - cell "Java"
+          - cell /\\d+/
+        - row /Learn JS Animesh Javascript \\d+/:
+          - cell "Learn JS"
+          - cell "Animesh"
+          - cell "Javascript"
+          - cell /\\d+/
+        - row /Master In Selenium Mukesh Selenium \\d+/:
+          - cell "Master In Selenium"
+          - cell "Mukesh"
+          - cell "Selenium"
+          - cell /\\d+/
+        - row /Master In Java Amod JAVA \\d+/:
+          - cell "Master In Java"
+          - cell "Amod"
+          - cell "JAVA"
+          - cell /\\d+/
+        - row /Master In JS Amit Javascript \\d+/:
+          - cell "Master In JS"
+          - cell "Amit"
+          - cell "Javascript"
+          - cell /\\d+/
+    - heading "Dynamic Web Table" [level=2]
+    - table:
+      - rowgroup:
+        - row "Name Memory (MB) Disk (MB/s) Network (Mbps) CPU (%)":
+          - cell "Name"
+          - cell "Memory (MB)"
+          - cell "Disk (MB/s)"
+          - cell "Network (Mbps)"
+          - cell "CPU (%)"
+      - rowgroup:
+        - row /Chrome \\d+\\.\\d+ MB \\d+\\.\\d+ MB\\/s 9\\.2 Mbps 2\\.2%/:
+          - cell "Chrome"
+          - cell /\\d+\\.\\d+ MB/
+          - cell /\\d+\\.\\d+ MB\\/s/
+          - cell "9.2 Mbps"
+          - cell "2.2%"
+        - row /Firefox \\d+\\.\\d+ MB \\d+\\.\\d+ MB\\/s 6\\.7 Mbps 2\\.9%/:
+          - cell "Firefox"
+          - cell /\\d+\\.\\d+ MB/
+          - cell /\\d+\\.\\d+ MB\\/s/
+          - cell "6.7 Mbps"
+          - cell "2.9%"
+        - row /Internet Explorer \\d+\\.\\d+ MB \\d+\\.\\d+ MB\\/s 3\\.4 Mbps 6\\.0%/:
+          - cell "Internet Explorer"
+          - cell /\\d+\\.\\d+ MB/
+          - cell /\\d+\\.\\d+ MB\\/s/
+          - cell "3.4 Mbps"
+          - cell "6.0%"
+        - row /System \\d+\\.\\d+ MB \\d+\\.\\d+ MB\\/s 2\\.3 Mbps 5\\.4%/:
+          - cell "System"
+          - cell /\\d+\\.\\d+ MB/
+          - cell /\\d+\\.\\d+ MB\\/s/
+          - cell "2.3 Mbps"
+          - cell "5.4%"
+    - paragraph:
+      - text: "CPU load of Chrome process:"
+      - strong: 2.2%
+    - paragraph:
+      - text: "Memory Size of Firefox process:"
+      - strong: /\\d+\\.\\d+ MB/
+    - paragraph:
+      - text: "Network speed of Chrome process:"
+      - strong: 9.2 Mbps
+    - paragraph:
+      - text: "Disk space of Firefox process:"
+      - strong: /\\d+\\.\\d+ MB\\/s/
+    - heading "Pagination Web Table" [level=2]
+    - table:
+      - rowgroup:
+        - row "ID Name Price Select":
+          - cell "ID"
+          - cell "Name"
+          - cell "Price"
+          - cell "Select"
+      - rowgroup:
+        - row /1 Smartphone \\$\\d+\\.\\d+/:
+          - cell "1"
+          - cell "Smartphone"
+          - cell /\\$\\d+\\.\\d+/
+          - cell:
+            - checkbox
+        - row /2 Laptop \\$\\d+\\.\\d+/:
+          - cell "2"
+          - cell "Laptop"
+          - cell /\\$\\d+\\.\\d+/
+          - cell:
+            - checkbox
+        - row /3 Tablet \\$\\d+\\.\\d+/:
+          - cell "3"
+          - cell "Tablet"
+          - cell /\\$\\d+\\.\\d+/
+          - cell:
+            - checkbox
+        - row /4 Smartwatch \\$\\d+\\.\\d+/:
+          - cell "4"
+          - cell "Smartwatch"
+          - cell /\\$\\d+\\.\\d+/
+          - cell:
+            - checkbox
+        - row /5 Wireless Earbuds \\$\\d+\\.\\d+/:
+          - cell "5"
+          - cell "Wireless Earbuds"
+          - cell /\\$\\d+\\.\\d+/
+          - cell:
+            - checkbox
+    - list:
+      - listitem:
+        - link "1":
+          - /url: "#"
+      - listitem:
+        - link "2":
+          - /url: "#"
+      - listitem:
+        - link "3":
+          - /url: "#"
+      - listitem:
+        - link "4":
+          - /url: "#"
+    - complementary
+    - complementary:
+      - heading "Tabs" [level=2]
+      - link:
+        - /url: https://wikipedia.org/wiki/
+        - img
+      - textbox: dhhd
+      - button "Submit"
+      - heading "Dynamic Button" [level=2]
+      - button "STOP"
+      - heading "Alerts & Popups" [level=2]
+      - button "Simple Alert"
+      - button "Confirmation Alert"
+      - button "Prompt Alert"
+      - paragraph: You pressed Cancel!
+      - button "New Tab"
+      - button "Popup Windows"
+      - heading "Mouse Hover" [level=2]
+      - paragraph: Move the mouse over the button to open the dropdown menu.
+      - button "Point Me"
+      - heading "Double Click" [level=2]
+      - text: "Field1:"
+      - textbox: Hello World!
+      - text: "Field2:"
+      - textbox
+      - button "Copy Text"
+      - paragraph: Double click on button, the text from Field1 will be copied into Field2.
+      - heading "Drag and Drop" [level=2]
+      - paragraph: Drag me to my target
+      - paragraph: Drop here
+      - heading "Slider" [level=2]
+      - paragraph:
+        - text: "Price range:"
+        - textbox "Price range:"
+      - heading "SVG Elements" [level=2]
+      - img
+      - img
+      - img
+      - heading "Scrolling DropDown" [level=2]
+      - textbox "Select an item"
+      - heading "Labels And Links" [level=2]
+      - heading "Mobile Labels" [level=4]
+      - text: Samsung Real Me Moto
+      - heading "Laptop Links" [level=4]
+      - link "Apple":
+        - /url: https://www.apple.com/
+      - link "Lenovo":
+        - /url: https://www.lenovo.com/
+      - link "Dell":
+        - /url: https://www.dell.com/
+      - heading "Broken Links" [level=4]
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=400
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=401
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=403
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=404
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=408
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=500
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=502
+      - link /Errorcode \\d+/:
+        - /url: http://www.deadlinkcity.com/error-page.asp?e=503
+      - heading "Visitors" [level=2]
+      - img "A chart."
+      - table:
+        - rowgroup:
+          - row:
+            - cell
+            - cell
+        - rowgroup:
+          - row /0 \\d+/:
+            - cell "0"
+            - cell /\\d+/
+          - row /1 \\d+/:
+            - cell "1"
+            - cell /\\d+/
+          - row /2 \\d+/:
+            - cell "2"
+            - cell /\\d+/
+          - row /3 \\d+/:
+            - cell "3"
+            - cell /\\d+/
+          - row /4 \\d+/:
+            - cell "4"
+            - cell /\\d+/
+          - row /5 \\d+/:
+            - cell "5"
+            - cell /\\d+/
+          - row /6 \\d+/:
+            - cell "6"
+            - cell /\\d+/
+          - row /7 \\d+/:
+            - cell "7"
+            - cell /\\d+/
+          - row /8 \\d+/:
+            - cell "8"
+            - cell /\\d+/
+          - row /9 \\d+/:
+            - cell "9"
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ \\d+/:
+            - cell /\\d+/
+            - cell /\\d+/
+          - row /\\d+ 4/:
+            - cell /\\d+/
+            - cell "4"
+      - text: /\\d+,\\d+,\\d+/
+    `);
+  const page1Promise = page.waitForEvent('popup');
+  await page.locator('#Wikipedia1_wikipedia-search-form').getByRole('link').click();
+  const page1 = await page1Promise;
+  await page1.getByRole('link', { name: 'Wikipedia The Free' }).click();
+});
