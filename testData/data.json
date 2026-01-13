@@ -1,0 +1,22 @@
+[
+    {
+        "username": "laura.taylor1234@example.com",
+        "password": "test123",
+        "status": "valid"
+    },
+    {
+        "username": "validuser@example.com",
+        "password": "test1xya",
+        "status": "invalid"
+    },
+    {
+        "username": "invaliduser@example.com",
+        "password": "test321",
+        "status": "invalid"
+    },
+    {
+        "username": "",
+        "password": "",
+        "status": "invalid"
+    }
+]

@@ -1,0 +1,5 @@
+username,password,status
+laura.taylor1234@example.com,test123,valid
+validuser@example.com,test1xya,invalid
+invaliduser@example.com,test321,invalid
+,,invalid

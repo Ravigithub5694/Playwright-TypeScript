@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8031","Prompt type of dialog dialog @alerts","","2026-01-10","passed","2026-01-10","","Concepts2\Alerts.spec.ts","",""
+"","5765","Dynamic elemnts","","2026-01-10","passed","2026-01-10","","UI\Basics3.spec.ts","",""
+"","21167","Search for specific data in all pages","","2026-01-10","failed","2026-01-10","","UI\Pagenation.spec.ts","",""
+"","4622","Searching books","","2026-01-10","passed","2026-01-10","","Concepts4\Report1.spec.ts","",""
+"","3713","Checking title","","2026-01-10","passed","2026-01-10","","Concepts4\Report1.spec.ts","",""
+"","5289","multi select dropdowns","","2026-01-10","passed","2026-01-10","","UI\dropdowns.spec.ts","",""
