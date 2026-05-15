@@ -1,0 +1,4 @@
+Dialog type is:  prompt
+dialog text is : Please enter your name:
+Harry Potter
+Text after canceling the confirm dialog:  Hello John! How are you today?

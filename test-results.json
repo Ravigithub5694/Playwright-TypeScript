@@ -80,14 +80,14 @@
   },
   "suites": [
     {
-      "title": "api-product-test.spec.ts",
-      "file": "api-product-test.spec.ts",
+      "title": "UI\\aboutChrome.spec.ts",
+      "file": "UI/aboutChrome.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "API Test - Get Product Details",
-          "ok": true,
+          "title": "Shadow root elemt",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -100,35 +100,57 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 540,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "Product Title: Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\n"
+                  "status": "failed",
+                  "duration": 9532,
+                  "error": {
+                    "message": "Error: locator.textContent: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('h2#title')\u001b[22m\n",
+                    "stack": "Error: locator.textContent: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('h2#title')\u001b[22m\n\n    at E:\\Playwright-TypeScript\\tests\\UI\\aboutChrome.spec.ts:13:48",
+                    "location": {
+                      "file": "E:\\Playwright-TypeScript\\tests\\UI\\aboutChrome.spec.ts",
+                      "column": 48,
+                      "line": 13
                     },
+                    "snippet": "\u001b[0m \u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'https://www.google.com/chrome://settings/help'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'h2#title'\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'h2#title'\u001b[39m)\u001b[33m.\u001b[39mtextContent())\n \u001b[90m    |\u001b[39m                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m })\u001b[0m"
+                  },
+                  "errors": [
                     {
-                      "text": "Product Price: $109.95\n"
+                      "location": {
+                        "file": "E:\\Playwright-TypeScript\\tests\\UI\\aboutChrome.spec.ts",
+                        "column": 48,
+                        "line": 13
+                      },
+                      "message": "Error: locator.textContent: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('h2#title')\u001b[22m\n\n\n\u001b[0m \u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'https://www.google.com/chrome://settings/help'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'h2#title'\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'h2#title'\u001b[39m)\u001b[33m.\u001b[39mtextContent())\n \u001b[90m    |\u001b[39m                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m })\u001b[0m\n\u001b[2m    at E:\\Playwright-TypeScript\\tests\\UI\\aboutChrome.spec.ts:13:48\u001b[22m"
                     }
                   ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-30T16:00:51.990Z",
+                  "startTime": "2026-05-10T07:17:45.265Z",
                   "annotations": [],
                   "attachments": [
                     {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\Playwright-TypeScript\\test-results\\UI-aboutChrome-Shadow-root-elemt\\video.webm"
+                    },
+                    {
                       "name": "trace",
                       "contentType": "application/zip",
-                      "path": "E:\\Playwright-TypeScript\\test-results\\api-product-test-API-Test---Get-Product-Details\\trace.zip"
+                      "path": "E:\\Playwright-TypeScript\\test-results\\UI-aboutChrome-Shadow-root-elemt\\trace.zip"
                     }
-                  ]
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\Playwright-TypeScript\\tests\\UI\\aboutChrome.spec.ts",
+                    "column": 48,
+                    "line": 13
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "16723893f654271fc74a-9c7f84801aa99ceea20f",
-          "file": "api-product-test.spec.ts",
+          "id": "59df47afa5d1dd744475-92c669a04b5ac95c5aac",
+          "file": "UI/aboutChrome.spec.ts",
           "line": 4,
           "column": 5
         }
@@ -137,11 +159,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T16:00:51.283Z",
-    "duration": 1327.5529999999999,
-    "expected": 1,
+    "startTime": "2026-05-10T07:17:44.575Z",
+    "duration": 10811.947,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }
